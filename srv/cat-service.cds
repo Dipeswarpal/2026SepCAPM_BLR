@@ -2,8 +2,6 @@ using {NewApp.db as database} from '../db/schemaNew';
 using {NewApp.commonNew as common} from '../db/common';
 
 service CatalogService {
-
-
   //Master data which is in the Master Context
 
   @Capabilities: {
@@ -128,7 +126,6 @@ function top20HighestPaid() returns array of EmployeeSrv;
                          PRICE: Decimal(15, 2))         returns String;
 
   action   deleteAddress(NODE_KEY: UUID)                returns String;
-
 
   // Custom Function Declaration
 
