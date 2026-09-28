@@ -1,0 +1,11 @@
+empId,empName,salary,dept,city,country,division_divId
+1001,Ashok,65000,Engineering,Bangalore,India,101
+1002,Neha,58000,Finance,Mumbai,India,102
+1003,Ramesh,72000,Engineering,Delhi,India,101
+1004,Priya,62000,Marketing,Chennai,India,104
+1005,Sunil,55000,Sales,Hyderabad,India,105
+1006,Kavita,68000,Operations,Pune,India,106
+1007,Rohit,75000,Research,Bangalore,India,107
+1008,Anjali,60000,Support,Kolkata,India,108
+1009,Vikas,70000,Quality,Chennai,India,109
+1010,Shweta,80000,IT Services,Noida,India,110

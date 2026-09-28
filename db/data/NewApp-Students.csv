@@ -1,0 +1,11 @@
+studentId,studentName,fatherName,motherName,contactNo,gender,city,class_classId
+101,Nikhil Verma,Ashok Verma,Rekha Verma,9123401,M,Coimbato,1
+102,Saanvi Iyer,Ganesh Iyer,Latha Iyer,9123401,F,Madur,2
+103,Krishna Menon,Hari Menon,Sheela Menon,9123401,M,Trivandr,3
+104,Tanvi Mehta,Kunal Mehta,Ritu Mehta,9123401,F,Sur,4
+105,Reyansh Bose,Arup Bose,Mita Bose,9123401,M,Bhubanesw,5
+106,Aadhya Kulkarni,Milind Kulkarni,Swati Kulkarni,9123401,M,Nagp,6
+107,Dev Malhotra,Rohit Malhotra,Preeti Malhotra,9123401,M,Chandiga,7
+108,Myra Chawla,Vinod Chawla,Seema Chawla,9123401,F,Luckn,8
+109,Ayaan Pillai,Rajan Pillai,Bindu Pillai,9123401,M,Mysu,9
+110,Kiara Saxena,Manoj Saxena,Rashmi Saxena,9123401,F,Indo,10

@@ -1,0 +1,273 @@
+### Read the employee data
+GET http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv
+
+###
+POST http://localhost:4004/odata/v4/catalog/AddressSrv
+Content-Type: application/json 
+
+{
+      "ADDRESS_TYPE": "fghj",
+      "BUILDING": "Dip",
+      "CITY": "Mumbai",
+      "COUNTRY": "India",
+      "LATITUDE": 17.111022,
+      "LONGITUDE": 123.99899,
+      "NODE_KEY": "105",
+      "POSTAL_CODE": "768",
+      "STREET": "788",
+      "VAL_END": "2027-01-02",
+      "VAL_START": "2026-01-03"
+    }
+###
+PUT http://localhost:4004/odata/v4/catalog/EmployeeSrv/0111
+Content-Type : application/json
+
+{
+  "salaryAmount" :"105000",
+  "Currency" : "USD"
+}
+###
+PUT http://localhost:4004/odata/v4/catalog/ProductSrv/0033
+Content-Type : application/json
+
+{
+  "PRICE" :"1500"
+}
+###
+PUT http://localhost:4004/odata/v4/catalog/PurchaseItemSrv/74867AD200E41EDBA5D8B0CBD35A0052
+Content-Type: application/json
+
+{
+"GROSS_AMOUNT": 16000,
+"CURRENCY": "USD"
+}
+###
+PUT http://localhost:4004/odata/v4/catalog/PurchaseItemSrv/74867AD200E41EDBA5D8B0CBD35A0052
+Content-Type: application/json
+
+{
+"GROSS_AMOUNT": 16000,
+"CURRENCY": "EUR"
+}
+###
+PUT http://localhost:4004/odata/v4/catalog/AddressSrv/74867AD200E41EDBA5D8B06885678052
+Content-Type: application/json
+
+{
+"COUNTRY": "IN"
+}
+###
+PUT http://localhost:4004/odata/v4/catalog/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C19787FB
+Content-Type: application/json
+
+{
+"phoneNumber": "+919876543210"
+}
+###
+PUT http://localhost:4004/odata/v4/catalog/BusinessPartnerSrv/74867AD200E41EDBA5D8B06885A60052
+Content-Type: application/json
+
+{
+"COMPANY_NAME": "ABC-Company"
+}
+###
+PUT http://localhost:4004/odata/v4/catalog/PurchaseItemSrv/74867AD200E41EDBA5D8B0CBD35A0052
+Content-Type: application/json
+
+{
+"PO_ITEM_POS": 45
+}
+###
+POST http://localhost:4004/odata/v4/catalog/updateAddress
+Content-Type: application/json
+
+{
+    "NODE_KEY" : "100",
+    "CITY" : "Bangalore"
+}
+
+###
+POST http://localhost:4004/odata/v4/catalog/createProduct
+Content-Type: application/json
+
+{
+    "CATEGORY": "Electronics",
+    "CURRENCY_CODE": "EUR",
+    "DEPTH": 12.50,
+    "DESCRIPTION": "Wireless Bluetooth Headphones",
+    "DIM_UNIT": "CM",
+    "HEIGHT": 18.50,
+    "MEASURE_UNIT": "EA",
+    "NODE_KEY": "0033",
+    "PRICE": 250.00,
+    "PRODUCT_ID": "PROD001",
+    "SUPPLIERS_NODE_KEY": "SUP001",
+    "TAX_TARIF_CODE": 10,
+    "TYPE_CODE": "EL",
+    "WEIGHT_MEASURE": 2.50,
+    "WEIGHT_UNIT": "KG",
+    "WIDTH": 15.50
+}
+
+###
+POST http://localhost:4004/odata/v4/catalog/updateProduct
+Content-Type: application/json
+
+{
+    "NODE_KEY" : "0033",
+    "PRICE": 450.00
+}
+
+###
+POST http://localhost:4004/odata/v4/catalog/deleteAddress
+content-Type: application/json
+
+{
+    "NODE_KEY" : "55"
+}
+
+###
+POST http://localhost:4004/odata/v4/catalog/PurchaseItemSrv
+Content-Type: application/json 
+
+{
+  "CURRENCY": 34,
+  "GROSS_AMOUNT": 4500,
+  "NET_AMOUNT": 6000,
+  "NODE_KEY": "fa2d63cb-993e-442e-a5fa-ca3053d9c6tf",
+  "PARENT_NODE_KEY": "0611",
+  "PO_ITEM_POS": 9,
+  "PRODUCT_NODE_KEY": "0211",
+  "TAX_AMOUNT": 78
+    }
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv
+
+###Count number of Employees
+http://localhost:4004/odata/v4/catalog/ProductSrv/$count
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$top=10
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$top=10&$skip=10
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?$filter=CATEGORY eq 'Notebooks'&DIM_UNIT eq 'CM'
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?select=PRODUCT_ID,DESCRIPTION,CATAGORY
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv?orderby=PRODUCT_ID desc
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv('0033')/PRODUCT_ID
+
+###
+http://localhost:4004/odata/v4/catalog/ProductSrv('0033')/PRODUCT_ID/$value
+
+###
+http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv?$expand=Items
+
+
+
+
+
+###
+POST http://localhost:4004/odata/v4/catalog/createAddress
+Content-Type: application/json 
+
+{
+    "input" : [ 
+     {
+      "ADDRESS_TYPE": "fghj",
+      "BUILDING": "Dip",
+      "CITY": "Bangalore",
+      "COUNTRY": "India",
+      "LATITUDE": "17.111022",
+      "LONGITUDE": "123.998990",
+      "NODE_KEY": "111",
+      "POSTAL_CODE": "768",
+      "STREET": "788",
+      "VAL_END": "2027-01-02",
+      "VAL_START": "2026-01-03"
+    },
+    {
+      "ADDRESS_TYPE": "fghj",
+      "BUILDING": "Dip",
+      "CITY": "Mumbai",
+      "COUNTRY": "India",
+      "LATITUDE": "17.111022",
+      "LONGITUDE": "123.998990",
+      "NODE_KEY": "121",
+      "POSTAL_CODE": "768",
+      "STREET": "788",
+      "VAL_END": "2027-01-02",
+      "VAL_START": "2026-01-03"
+    },
+    {
+      "ADDRESS_TYPE": "fghj",
+      "BUILDING": "Dip",
+      "CITY": "Mumbai",
+      "COUNTRY": "India",
+      "LATITUDE": "17.111022",
+      "LONGITUDE": "123.998990",
+      "NODE_KEY": "98",
+      "POSTAL_CODE": "768",
+      "STREET": "788",
+      "VAL_END": "2027-01-02",
+      "VAL_START": "2026-01-03"
+    }
+  ]
+}
+
+###
+GET http://localhost:4004/odata/v4/catalog/getHighestSalariedEmployees()
+
+###
+
+GET http://localhost:4004/odata/v4/catalog/getHeighestPricedProduct()
+
+
+###
+GET http://localhost:4004/odata/v4/catalog/ProductService
+
+
+###
+POST http://localhost:4004/odata/v4/catalog/ProductService/74867AD200E41EDBA5D8B06B26EBC052/increasePrice
+Content-Type: application/json
+
+{}
+
+###
+GET http://localhost:4004/odata/v4/catalog/ProductService/74867AD200E41EDBA5D8B06B26EBC052/top20product()
+
+###
+GET http://localhost:4004/odata/v4/catalog/EmployeeSrv
+
+###
+POST http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv/74867AD200E41EDBA5D8B0C98DC2A052/discountPrice
+Content-Type: application/json
+
+{
+
+}
+
+### Top 20 products - price high to low
+GET http://localhost:4004/odata/v4/catalog/ProductSrv/74867AD200E41EDBA5D8B06B26EBC052/top20product
+
+###
+POST http://localhost:4004/odata/v4/catalog/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C197A7FB/increaseSalary
+Content-Type: application/json
+
+{
+
+}
+
+### Top 20 employees - high to low
+GET http://localhost:4004/odata/v4/catalog/EmployeeSrv/02BD2137-0890-1EEA-A6C2-BB55C197A7FB/top20HighestPaid
+
+###
+GET http://localhost:4004/odata/v4/catalog/getUtilities()

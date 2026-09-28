@@ -1,0 +1,11 @@
+ID,Album_ID,Location_ID,Member_ID,Title,Description,Privacy,UploadDate,View,ImagePath
+1,1,1,1,Marina Sunrise,Sunrise near the beach,Public,2026-01-10,230,/images/photo1.jpg
+2,2,2,2,Bangalore Trip,City travel photograph,Public,2026-01-15,180,/images/photo2.jpg
+3,3,3,3,Family Celebration,Family gathering photograph,Private,2026-02-01,95,/images/photo3.jpg
+4,4,4,4,Mumbai Streets,Urban street photography,Public,2026-02-14,320,/images/photo4.jpg
+5,5,5,5,Wildlife Moment,Wildlife captured outdoors,Public,2026-03-03,410,/images/photo5.jpg
+6,6,6,6,Indian Food,Traditional food photograph,Public,2026-03-15,215,/images/photo6.jpg
+7,7,7,7,Festival Lights,Colorful festival decorations,Public,2026-04-05,350,/images/photo7.jpg
+8,8,8,8,Goa Sunset,Sunset near the sea,Public,2026-04-20,480,/images/photo8.jpg
+9,9,9,9,Garden Flowers,Flowers blooming in a garden,Private,2026-05-01,120,/images/photo9.jpg
+10,10,10,10,Modern Gadgets,Modern technology devices,Public,2026-05-18,175,/images/photo10.jpg

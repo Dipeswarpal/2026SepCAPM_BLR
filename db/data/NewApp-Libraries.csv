@@ -1,0 +1,11 @@
+bookId,bookName,parent_studentId,studentName,issueDate,returnDate,AuthorName
+2001,Swami and Friends,101,Nikhil Verma,2026-09-01,2026-09-15,R K Narayan
+2002,The Jungle Book,102,Saanvi Iyer,2026-09-02,2026-09-16,Rudyard Kipling
+2003,Panchatantra Tales,103,Krishna Menon,2026-09-03,2026-09-17,Vishnu Sharma
+2004,Gitanjali,104,Tanvi Mehta,2026-09-04,2026-09-18,Rabindranath Tagore
+2005,The White Tiger,105,Reyansh Bose,2026-09-05,2026-09-19,Aravind Adiga
+2006,Interpreter of Maladies,106,Aadhya Kulkarni,2026-09-06,2026-09-20,Jhumpa Lahiri
+2007,The Namesake,107,Dev Malhotra,2026-09-07,2026-09-21,Jhumpa Lahiri
+2008,God of Small Things,108,Myra Chawla,2026-09-08,2026-09-22,Arundhati Roy
+2009,Midnights Children,109,Ayaan Pillai,2026-09-09,2026-09-23,Salman Rushdie
+2010,A Fine Balance,110,Kiara Saxena,2026-09-10,2026-09-24,Rohinton Mistry
