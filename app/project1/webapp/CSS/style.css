@@ -1,0 +1,10 @@
+/* Make Fiori action dialog wider */
+.sapMDialog {
+    width: 1000px !important;
+    max-width: 1000px !important;
+}
+ 
+/* Increase content area width */
+.sapMDialogSection {
+    width: 100% !important;
+}

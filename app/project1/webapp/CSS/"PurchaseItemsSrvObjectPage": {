@@ -1,0 +1,11 @@
+"PurchaseItemsSrvObjectPage": {
+    "type": "Component",
+    "id": "PurchaseItemsSrvObjectPage",
+    "name": "sap.fe.templates.ObjectPage",
+    "option": {
+      "settings": {
+        "editableHeaderContent": false,
+        "contextPath": "/PurchaseItemSrv"
+      }
+    }
+  

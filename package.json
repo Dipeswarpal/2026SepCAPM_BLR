@@ -7,7 +7,12 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-naapp": "cds watch --open naapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "undeploy": "cf undeploy newapp --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
+    "watch-project1": "cds watch --open application.project1/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "dependencies": {
     "@cap-js/hana": "^3",
@@ -15,5 +20,18 @@
     "@sap/cds": "^10.1.0",
     "@sap/cds-dk": "^9.9.6",
     "@sap/xssec": "^4.15.0"
-  }
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^10",
+    "cds-plugin-ui5": "^0.17.0",
+    "rimraf": "^5.0.5",
+    "mbt": "^1.2.49"
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/naapp",
+    "app/project1"
+  ]
 }

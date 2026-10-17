@@ -96,6 +96,121 @@ module.exports = cds.service.impl(async function () {
         return returnData;
     })
 
+    this.on('updateEmployee', async (request, response) => {
+        const {
+            ID,
+            accountNumber,
+            bankId,
+            salaryAmount
+        } = request.data;
+        try {
+            const objTransaction = cds.tx(request);
+
+            await objTransaction.update(EmployeeSrv).with({
+                accountNumber: accountNumber,
+                bankId: bankId,
+                salaryAmount: salaryAmount
+            }).where({
+                ID: ID
+            })
+
+            return "Successfully updated."
+        } catch (error) {
+            request.error("Error : ", error)
+        }
+    })
+
+    this.on('deleteEmployee', async (request, response) => {
+        const {
+            ID
+        } = request.data;
+        try {
+            const objTransaction = cds.tx(request);
+
+            await objTransaction.delete(EmployeeSrv).where({
+                ID: ID
+            })
+
+            return "Successfully deleted."
+        } catch (error) {
+            request.error("Error : ", error)
+        }
+    })
+
+    //PurchaseItemSrv custom operations
+
+    this.on('createPurchaseItem', async (request, response) => {
+
+        // Step 2: Get the data coming from the API
+        const itemData = request.data;
+
+        // Step 3: Instantiate the transaction object
+        const objTransaction = cds.tx(request);
+
+        // Step 4: Insert the record into database
+        let returnData = await objTransaction.run([
+            INSERT.into(PurchaseItemSrv).entries(itemData)
+        ]).then((resolve, reject) => {
+
+            if (typeof (resolve) !== undefined) {
+                return request.data;
+            } else {
+                request.error(500, "Error in inserting data into the database")
+            }
+
+        }).catch(err => {
+            request.error(
+                "There is an error:", err.toString())
+        });
+
+        // Step 5: Return the data
+        return returnData;
+    })
+
+    this.on('updatePurchaseItem', async (request, response) => {
+        const {
+            NODE_KEY,
+            GROSS_AMOUNT,
+            NET_AMOUNT,
+            TAX_AMOUNT,
+            PRODUCT_NODE_KEY
+        } = request.data;
+        try {
+            const objTransaction = cds.tx(request);
+
+            await objTransaction.update(PurchaseItemSrv).with({
+                GROSS_AMOUNT: GROSS_AMOUNT,
+                NET_AMOUNT: NET_AMOUNT,
+                TAX_AMOUNT: TAX_AMOUNT,
+                PRODUCT_NODE_KEY: PRODUCT_NODE_KEY
+            }).where({
+                NODE_KEY: NODE_KEY
+            })
+
+            return "Successfully updated."
+        } catch (error) {
+            request.error("Error : ", error)
+        }
+    })
+
+    this.on('deletePurchaseItem', async (request, response) => {
+        const {
+            NODE_KEY
+        } = request.data;
+        try {
+            const objTransaction = cds.tx(request);
+
+            await objTransaction.delete(PurchaseItemSrv).where({
+                NODE_KEY: NODE_KEY
+            })
+
+            return "Successfully deleted."
+        } catch (error) {
+            request.error("Error : ", error)
+        }
+    })
+
+
 
 
     // Implementation of createAddress action

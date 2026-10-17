@@ -1,5 +1,5 @@
 ### Read the employee data
-GET http://localhost:4004/odata/v4/catalog/PurchaseOrderSrv
+GET http://localhost:4004/odata/v4/catalog/EmployeeSrv
 
 ###
 POST http://localhost:4004/odata/v4/catalog/AddressSrv
@@ -108,6 +108,47 @@ Content-Type: application/json
     "WEIGHT_UNIT": "KG",
     "WIDTH": 15.50
 }
+
+###
+POST http://localhost:4004/odata/v4/catalog/updatePurchaseItem
+Content-Type : application/json
+
+{
+    "NODE_KEY" : "74867AD200E41EDBA5D8B0CBD35A0052",
+    "GROSS_AMOUNT" : 345,
+    "NET_AMOUNT" : 127,
+    "TAX_AMOUNT" : 45,
+    "PRODUCT_NODE_KEY" : "74867AD200E41EDBA5D8B06B26F60052"
+}
+
+
+###
+POST http://localhost:4004/odata/v4/catalog/deletePurchaseItem
+Content-Type : application/json
+
+{
+    "NODE_KEY" : "74867AD200E41EDBA5D8B0CBD35A0052"
+}
+
+###
+POST http://localhost:4004/odata/v4/catalog/updateEmployee
+Content-Type : application/json
+
+{
+    "ID":"0111",
+    "accountNumber":"567867" ,
+    "bankId": "rtyu567",
+    "salaryAmount": 150000.00
+}
+
+###
+POST http://localhost:4004/odata/v4/catalog/deleteEmployee
+Content-Type : application/json
+
+{
+    "ID":"0111"
+}
+
 
 ###
 POST http://localhost:4004/odata/v4/catalog/updateProduct
