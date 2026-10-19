@@ -201,9 +201,6 @@ http://localhost:4004/odata/v4/catalog/ProductSrv?$filter=CATEGORY eq 'Notebooks
 http://localhost:4004/odata/v4/catalog/ProductSrv?select=PRODUCT_ID,DESCRIPTION,CATAGORY
 
 ###
-http://localhost:4004/odata/v4/catalog/ProductSrv?orderby=PRODUCT_ID desc
-
-###
 http://localhost:4004/odata/v4/catalog/ProductSrv('0033')/PRODUCT_ID
 
 ###
