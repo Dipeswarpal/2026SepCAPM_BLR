@@ -3,101 +3,117 @@ ID: newapp
 description: Welcome to your new CAP project.
 version: 1.0.0
 modules:
-- name: newapp-srv
-  type: nodejs
-  path: gen/srv
-  requires:
-  - name: newapp-db
-  provides:
-  - name: srv-api
-    properties:
-      srv-url: ${default-url}
-  parameters:
-    buildpack: nodejs_buildpack
-    instances: 1
-  build-parameters:
-    builder: npm-ci
-- name: newapp-db-deployer
-  type: hdb
-  path: gen/db
-  requires:
-  - name: newapp-db
-  parameters:
-    buildpack: nodejs_buildpack
-- name: newapp-app-content
-  type: com.sap.application.content
-  path: .
-  requires:
-  - name: newapp-repo-host
-    parameters:
-      content-target: true
-  build-parameters:
-    build-result: resources
+  - name: newapp-srv
+    type: nodejs
+    path: gen/srv
     requires:
-    - artifacts:
-      - naapp.zip
-      name: naapp
-      target-path: resources/
-    - artifacts:
-      - applicationproject1.zip
-      name: applicationproject1
-      target-path: resources/
-- name: naapp
-  type: html5
-  path: app/naapp
-  build-parameters:
-    build-result: dist
-    builder: custom
-    commands:
-    - npm install
-    - npm run build:cf
-    supported-platforms: []
-- name: applicationproject1
-  type: html5
-  path: app/project1
-  build-parameters:
-    build-result: dist
-    builder: custom
-    commands:
-    - npm install
-    - npm run build:cf
-    supported-platforms: []
+      - name: newapp-db
+      - name: newapp-auth
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    parameters:
+      buildpack: nodejs_buildpack
+      instances: 1
+    build-parameters:
+      builder: npm-ci
+  - name: newapp-db-deployer
+    type: hdb
+    path: gen/db
+    requires:
+      - name: newapp-db
+    parameters:
+      buildpack: nodejs_buildpack
+  - name: newapp-app-content
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: newapp-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - naapp.zip
+          name: naapp
+          target-path: resources/
+        - artifacts:
+            - applicationproject1.zip
+          name: applicationproject1
+          target-path: resources/
+  - name: naapp
+    type: html5
+    path: app/naapp
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms:
+        []
+  - name: applicationproject1
+    type: html5
+    path: app/project1
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms:
+        []
 resources:
-- name: newapp-db
-  type: com.sap.xs.hdi-container
-  parameters:
-    service: hana
-    service-plan: hdi-shared
-- name: newapp-repo-host
-  type: org.cloudfoundry.managed-service
-  parameters:
-    service: html5-apps-repo
-    service-name: newapp-html5-service
-    service-plan: app-host
-- name: newapp-destination-service
-  type: org.cloudfoundry.managed-service
-  parameters:
-    config:
-      HTML5Runtime_enabled: false
-      init_data:
-        instance:
-          destinations:
-          - Authentication: NoAuthentication
-            Name: ui5
-            ProxyType: Internet
-            Type: HTTP
-            URL: https://ui5.sap.com
-          existing_destinations_policy: update
-      version: 1.0.0
-    service: destination
-    service-name: newapp-destination-service
-    service-plan: lite
+  - name: newapp-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+  - name: newapp-repo-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-name: newapp-html5-service
+      service-plan: app-host
+  - name: newapp-destination-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: false
+        init_data:
+          instance:
+            destinations:
+              - Authentication: NoAuthentication
+                Name: ui5
+                ProxyType: Internet
+                Type: HTTP
+                URL: https://ui5.sap.com
+            existing_destinations_policy: update
+        version: 1.0.0
+      service: destination
+      service-name: newapp-destination-service
+      service-plan: lite
+  - name: newapp-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: newapp-${org}-${space}
+        tenant-mode: dedicated
+        oauth2-configuration:
+          credential-types:
+            - "binding-secret"
+            - "x509"
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
 build-parameters:
   before-all:
-  - builder: custom
-    commands:
-    - npm ci
-    - npx cds build --production
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
