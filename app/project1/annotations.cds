@@ -27,7 +27,7 @@ annotate service.PurchaseOrderSrv with {
             }]
         }
     });
-    COMPANY_NAME       @(
+    partnerName       @(
         Common.Text     : COMPANY_NAME,
 
         Common.ValueList: {

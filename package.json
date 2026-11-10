@@ -35,6 +35,9 @@
     "app/project1"
   ],
   "cds": {
+    "server" : {
+      "index" : true
+    },
     "requires": {
       "[production]": {
         "auth": "xsuaa"

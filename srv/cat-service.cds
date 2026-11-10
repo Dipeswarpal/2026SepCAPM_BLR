@@ -1,7 +1,7 @@
 using {NewApp.db as database} from '../db/schemaNew';
 using {NewApp.commonNew as common} from '../db/common';
 
-service CatalogService {
+service CatalogService @(require : 'authenticator-user') {
 
   @Capabilities: {
     InsertRestrictions.Insertable: true,
@@ -72,8 +72,6 @@ service CatalogService {
           po.NET_AMOUNT,
           po.TAX_AMOUNT,
           po.CURRENCY,
-          bp.COMPANY_NAME,
-          bp.BP_ID,
           role.description    as BP_ROLE,
           bp.MOBILE,
           bp.FAX,
@@ -82,7 +80,6 @@ service CatalogService {
           addr.ADDRESS_TYPE,
           addr.BUILDING,
           addr.CITY,
-          addr.COUNTRY,
           addr.LATITUDE,
           addr.LONGITUDE,
           addr.STREET,

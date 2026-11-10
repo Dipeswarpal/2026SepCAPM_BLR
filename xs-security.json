@@ -1,6 +1,68 @@
 {
-  "description": "Security profile of called application",
-  "scopes": [],
-  "attributes": [],
-  "role-templates": []
+ "xsappname": "NewApp",
+ "tenant-mode": "dedicated",
+ "scopes": [
+  {
+   "name": "$XSAPPNAME.viewer",
+   "description": "Viewer Role"
+  },
+  {
+   "name": "$XSAPPNAME.Admin",
+   "description": "Admin Role"
+  }
+ ],
+ "attributes": [
+  {
+   "name": "myCountry",
+   "description": "Country",
+   "valueType": "string"
+  }
+ ],
+ "role-templates": [
+  {
+   "name": "faAdmin",
+   "descrition": "Role Template : Admin",
+   "scope-references": [
+    "$XSAPPNAME.Admin"
+   ]
+  },
+  {
+   "name": "faViewer",
+   "descrition": "Role Template : Viewer",
+   "scope-references": [
+    "$XSAPPNAME.Viewer"
+   ],
+   "attribute-references": [
+    {
+     "name": "myCountry"
+    }
+   ]
+  }
+ ],
+ "role-collection": [
+  {
+   "name": "FA_ADMIN",
+   "description": "Role Collection : Admin",
+   "role-template-references": [
+    "$XSAPPNAME.Admin"
+   ]
+  },
+  {
+   "name": "FA_VIEWER",
+   "description": "Role Collection : Viewer",
+   "role-template-references": [
+    "$XSAPPNAME.Viewer"
+   ]
+  }
+ ],
+ "authorities": [
+  "$ACCEPT_GRANTED_AUTHORITIES"
+ ],
+ "oauth2-configuration": {
+  "token-validity": 9000,
+  "redirect-uris": [
+   "https://*.cfapps.us10-001.hana.ondemand.com/login/callback"
+  ]
+ },
+ "xsenablessyncservice": true
 }
